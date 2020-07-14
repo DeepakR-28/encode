@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <script src="/js/script.js"></script>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <center>
+      <h1 style="font-family: Source Code Pro, monospace; color: #00d700;">
+        Encoding
+      </h1>
+    </center>
+    <div class="outer">
+      <div class="inner">
+        <textarea name="" id="inputText" cols="40" rows="10"></textarea>
+        <br /><br />
+        <br /><br />
+        <div class="inner">
+          <br />
+
+          <select name="encoder" id="mySelect" onchange="update()">
+            <option value="select">select</option>
+            <option value="binary">Binary</option>
+            <option value="morse">Morse</option>
+            <option value="ceaser">Ceaser's Cipher</option>
+            <option value="base64">base64</option>
+          </select>
+        </div>
+        <textarea name="" id="outputText" cols="40" rows="10"></textarea>
+        <br /><br />
+        <br /><br />1
+      </div>
+    </div>
+  </body>
+</html>

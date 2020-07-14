@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <script src="/js/script.js"></script>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <center>
+      <h1 style="font-family: Source Code Pro, monospace; color: #00d700;">
+        Decoding
+      </h1>
+    </center>
+    <div class="outer">
+      <div class="inner">
+        <textarea name="" id="inputDecodeText" cols="40" rows="10"></textarea>
+        <br /><br />
+        <br /><br />
+        <div class="inner">
+          <br />
+          <select name="encoder" id="decodeSelect" onclick="decoders()">
+            <option value="">Select</option>
+            <option value="binaryDecode">Binary</option>
+            <option value="morseDecode">Morse</option>
+            <option value="ceaserDecode">Ceaser</option>
+            <option value="base64Decode">base64</option>
+          </select>
+        </div>
+        <textarea name="" id="outputDecodeText" cols="40" rows="10"></textarea>
+        <br /><br />
+        <br /><br />1
+      </div>
+    </div>
+  </body>
+</html>

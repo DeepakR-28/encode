@@ -178,7 +178,13 @@ function ceaserEncoder() {
     prompt("Enter the Key for Encryption/Decryption (key should be a number)")
   );
   for (var i = 0; i < text.length; i++) {
-    output += String.fromCharCode(((text.charCodeAt(i) - 65 + key) % 26) + 65);
+    if (text[i] == " ") {
+      output += " ";
+    } else {
+      output += String.fromCharCode(
+        ((text.charCodeAt(i) - 65 + key) % 26) + 65
+      );
+    }
   }
   document.getElementById("outputText").value = output;
   console.log(output);
@@ -195,7 +201,9 @@ function ceaserDecoder() {
 
   for (var i = 0; i < text.length; i++) {
     var alphaCode = text.charCodeAt(i) - 65 - key;
-    if (alphaCode < 0) {
+    if (text[i] == " ") {
+      output += " ";
+    } else if (alphaCode < 0) {
       alphaCode += 26;
       output += String.fromCharCode((alphaCode % 26) + 65);
     } else {

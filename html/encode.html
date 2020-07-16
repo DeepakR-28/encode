@@ -23,11 +23,12 @@
       rel="stylesheet"
     />
   </head>
-  <body>
+ <body>
     <center>
       <h1 style="font-family: Source Code Pro, monospace; color: #00d700;">
         Encoding
       </h1>
+      <br /><br /><br /><br />
     </center>
     <div class="outer">
       <div class="inner">
@@ -45,8 +46,23 @@
             <option value="base64">base64</option>
           </select>
         </div>
+        <br />
         <textarea name="" id="outputText" cols="40" rows="10"></textarea>
-        <br /><br />
+        <br />
+        <center>
+          <button
+            onclick="copy()"
+            style="font-size: 15px; width: 100px; height: 50px;"
+          >
+            Copy
+          </button>
+          <a href="./decode.html"
+            ><button style="font-size: 15px; width: 100px; height: 50px;">
+              Decode
+            </button></a
+          >
+        </center>
+
         <br /><br />1
       </div>
     </div>

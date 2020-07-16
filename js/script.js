@@ -224,6 +224,13 @@ function update() {
     ceaserEncoder();
   }
 }
+function copy() {
+  var copyText = document.getElementById("outputText");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  alert("Encoded text copied: " + copyText.value);
+}
 
 function decoders() {
   if (document.getElementById("decodeSelect").value == "binaryDecode") {

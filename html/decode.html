@@ -23,11 +23,12 @@
       rel="stylesheet"
     />
   </head>
-  <body>
+ <body>
     <center>
       <h1 style="font-family: Source Code Pro, monospace; color: #00d700;">
         Decoding
       </h1>
+      <br /><br />
     </center>
     <div class="outer">
       <div class="inner">
@@ -36,6 +37,7 @@
         <br /><br />
         <div class="inner">
           <br />
+
           <select name="encoder" id="decodeSelect" onclick="decoders()">
             <option value="">Select</option>
             <option value="binaryDecode">Binary</option>
@@ -44,9 +46,17 @@
             <option value="base64Decode">base64</option>
           </select>
         </div>
+        <br />
         <textarea name="" id="outputDecodeText" cols="40" rows="10"></textarea>
         <br /><br />
-        <br /><br />1
+
+        <center>
+          <a href="./encode.html"
+            ><button style="font-size: 15px; width: 100px; height: 50px;">
+              Encoder
+            </button></a
+          >
+        </center>
       </div>
     </div>
   </body>

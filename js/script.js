@@ -50,16 +50,16 @@ function morseEncoder() {
     x: "-..-",
     y: "-.--",
     z: "--..",
-    "1": ".----",
-    "2": "..---",
-    "3": "...--",
-    "4": "....-",
-    "5": ".....",
-    "6": "-....",
-    "7": "--...",
-    "8": "---..",
-    "9": "----.",
-    "0": "-----",
+    1: ".----",
+    2: "..---",
+    3: "...--",
+    4: "....-",
+    5: ".....",
+    6: "-....",
+    7: "--...",
+    8: "---..",
+    9: "----.",
+    0: "-----",
     ".": ".-.-.-",
     ",": "--..--",
     "?": "..--..",
@@ -213,6 +213,81 @@ function ceaserDecoder() {
   document.getElementById("outputDecodeText").value = output;
 }
 
+function KeywordEncoder() {
+  var inputString = document.getElementById("inputText").value;
+  var alphabets = "abcdefghijklmnopqrstuvwxyz";
+  var finalText = "";
+  var keyword = prompt(
+    "Enter the keyword for encoding (make sure the keyword doesn't have repeated letters)"
+  );
+  var encodedAlphabets = keyword;
+  while (1) {
+    if (keyword.length > 26) {
+      keyword = prompt("Enter the Keyword which is 26 letters long");
+    } else {
+      break;
+    }
+  }
+  for (var i = 0; i < 26; i++) {
+    //   encodedAlphabets += alphabets[i];
+    if (encodedAlphabets.includes(alphabets[i])) {
+      continue;
+    } else {
+      encodedAlphabets += alphabets[i];
+    }
+  }
+  for (var i = 0; i < inputString.length; i++) {
+    changeIndex = alphabets.indexOf(inputString[i]);
+    if (changeIndex == -1) {
+      finalText += " ";
+    } else {
+      finalText += encodedAlphabets[changeIndex];
+    } //   console.log(inputString[i] + " is at " + changeIndex);
+  }
+  console.log(alphabets);
+  console.log(encodedAlphabets);
+  console.log(keyword);
+  document.getElementById("outputText").value = finalText;
+}
+
+function keywordDecoder() {
+  var inputString = document.getElementById("inputDecodeText").value;
+  var keyword = prompt(
+    "Enter the keyword for decoding (make sure the keyword doesn't have repeated letters)"
+  );
+  var alphabets = "abcdefghijklmnopqrstuvwxyz";
+  var encodedAlphabets = keyword;
+  var decrypted = "";
+  for (var i = 0; i < 26; i++) {
+    //   encodedAlphabets += alphabets[i];
+    if (encodedAlphabets.includes(alphabets[i])) {
+      continue;
+    } else {
+      encodedAlphabets += alphabets[i];
+    }
+  }
+  for (var i = 0; i < inputString.length; i++) {
+    changeIndex = encodedAlphabets.indexOf(inputString[i]);
+    if (changeIndex == -1) {
+      decrypted += " ";
+    } else {
+      decrypted += alphabets[changeIndex];
+    } //   console.log(inputString[i] + " is at " + changeIndex);
+  }
+  console.log(keyword);
+  console.log(encodedAlphabets);
+  console.log(alphabets);
+  console.log(decrypted);
+  document.getElementById("outputDecodeText").value = decrypted;
+}
+function copy() {
+  var copyText = document.getElementById("outputText");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  alert("Copied the text: " + copyText.value);
+}
+
 function update() {
   if (document.getElementById("mySelect").value == "binary") {
     binaryEncode();
@@ -222,14 +297,9 @@ function update() {
     base64Encoder();
   } else if (document.getElementById("mySelect").value == "ceaser") {
     ceaserEncoder();
+  } else if (document.getElementById("mySelect").value == "keyword") {
+    KeywordEncoder();
   }
-}
-function copy() {
-  var copyText = document.getElementById("outputText");
-  copyText.select();
-  copyText.setSelectionRange(0, 99999);
-  document.execCommand("copy");
-  alert("Encoded text copied: " + copyText.value);
 }
 
 function decoders() {
@@ -241,5 +311,9 @@ function decoders() {
     base64Decoder();
   } else if (document.getElementById("decodeSelect").value == "ceaserDecode") {
     ceaserDecoder();
+  } else if (
+    document.getElementById("decodeSelect").value == "KeywordDecoder"
+  ) {
+    keywordDecoder();
   }
 }
